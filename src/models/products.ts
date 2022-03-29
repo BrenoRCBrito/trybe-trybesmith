@@ -9,19 +9,19 @@ export default class ProductModel {
   }
 
   public async getAll(): Promise<Product[]> {
-    const query = 'SELECT id, name, amount, orderId FROM Products';
-    const [users] = await this.connection.execute(query);
-    return users as Product[];
+    const query = 'SELECT id, name, amount, orderId FROM Trybesmith.Products';
+    const [products] = await this.connection.execute(query);
+    return products as Product[];
   }
 
   public async create({ name, amount }: Product): Promise<Product> {
-    const query = 'INSERT INTO Products(name, amount) VALUES(?,?)';
+    const query = 'INSERT INTO Trybesmith.Products(name, amount) VALUES(?,?)';
     const [result] = await this.connection.execute<ResultSetHeader>(query, [
       name,
       amount,
     ]);
     const { insertId: id } = result;
-    const insertedUser = { id, name, amount };
-    return insertedUser as Product;
+    const insertedProduct = { id, name, amount };
+    return insertedProduct as Product;
   }
 }

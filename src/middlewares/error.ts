@@ -1,15 +1,19 @@
 import { Request, Response, NextFunction } from 'express';
 
 type CustomError = {
-  status: number;
-  error: string;
+  code: number;
+  message: string;
 };
 
-export const globalErr = (err: CustomError, _req: Request, res: Response) => {
-  const { status, error } = err as CustomError;
-  if (status) return res.status(status).json({ error });
-  return res.status(500).json({ error });
-};
+export const notFound = (_req: Request, _res: Response, next: NextFunction) =>
+  next({ code: 404, error: 'Opsss router not found' });
 
-export const notFound = (next: NextFunction) =>
-  next({ status: 404, error: 'Opsss router not found' });
+export const globalErr = (
+  err: CustomError,
+  _req: Request,
+  res: Response,
+  _next: NextFunction
+) => {
+  if (err.code) return res.status(err.code).json({ error: err.message });
+  return res.status(500).json({ error: err.message });
+};
