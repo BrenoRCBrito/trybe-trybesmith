@@ -11,7 +11,8 @@
     "airbnb-base",
     "plugin:editorconfig/noconflict",
     "plugin:mocha/recommended",
-    "airbnb-typescript/base"
+    "airbnb-typescript/base",
+    "prettier"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
@@ -19,23 +20,12 @@
     "sourceType": "module",
     "project": "./tsconfig.json"
   },
-  "plugins": [
-    "@typescript-eslint",
-    "sonarjs",
-    "editorconfig",
-    "mocha"
-  ],
+  "plugins": ["@typescript-eslint", "sonarjs", "editorconfig", "mocha"],
   "rules": {
     "no-console": "off",
     "camelcase": "warn",
-    "arrow-parens": [
-      2,
-      "always"
-    ],
-    "quotes": [
-      2,
-      "single"
-    ],
+    "arrow-parens": [2, "always"],
+    "quotes": [2, "single"],
     "implicit-arrow-linebreak": "off",
     "consistent-return": "off",
     "@typescript-eslint/no-unused-vars": [
@@ -53,14 +43,8 @@
       }
     ],
     "object-curly-newline": "off",
-    "max-params": [
-      "error",
-      4
-    ],
-    "max-lines": [
-      "error",
-      250
-    ],
+    "max-params": ["error", 4],
+    "max-lines": ["error", 250],
     "max-lines-per-function": [
       "error",
       {
@@ -76,64 +60,24 @@
         "ignoreComments": true
       }
     ],
-    "complexity": [
-      "error",
-      5
-    ],
-    "import/no-extraneous-dependencies": [
-      "off"
-    ],
-    "sonarjs/cognitive-complexity": [
-      "error",
-      5
-    ],
-    "sonarjs/no-one-iteration-loop": [
-      "error"
-    ],
-    "sonarjs/no-identical-expressions": [
-      "error"
-    ],
-    "sonarjs/no-use-of-empty-return-value": [
-      "error"
-    ],
-    "sonarjs/no-extra-arguments": [
-      "error"
-    ],
-    "sonarjs/no-identical-conditions": [
-      "error"
-    ],
-    "sonarjs/no-collapsible-if": [
-      "error"
-    ],
-    "sonarjs/no-collection-size-mischeck": [
-      "error"
-    ],
-    "sonarjs/no-duplicate-string": [
-      "error"
-    ],
-    "sonarjs/no-duplicated-branches": [
-      "error"
-    ],
-    "sonarjs/no-identical-functions": [
-      "error"
-    ],
-    "sonarjs/no-redundant-boolean": [
-      "error"
-    ],
-    "sonarjs/no-unused-collection": [
-      "error"
-    ],
-    "sonarjs/no-useless-catch": [
-      "error"
-    ],
-    "sonarjs/prefer-object-literal": [
-      "error"
-    ],
-    "sonarjs/prefer-single-boolean-return": [
-      "error"
-    ],
-    "sonarjs/no-inverted-boolean-check": [
-      "error"
-    ]
+    "complexity": ["error", 5],
+    "import/no-extraneous-dependencies": ["off"],
+    "sonarjs/cognitive-complexity": ["error", 5],
+    "sonarjs/no-one-iteration-loop": ["error"],
+    "sonarjs/no-identical-expressions": ["error"],
+    "sonarjs/no-use-of-empty-return-value": ["error"],
+    "sonarjs/no-extra-arguments": ["error"],
+    "sonarjs/no-identical-conditions": ["error"],
+    "sonarjs/no-collapsible-if": ["error"],
+    "sonarjs/no-collection-size-mischeck": ["error"],
+    "sonarjs/no-duplicate-string": ["error"],
+    "sonarjs/no-duplicated-branches": ["error"],
+    "sonarjs/no-identical-functions": ["error"],
+    "sonarjs/no-redundant-boolean": ["error"],
+    "sonarjs/no-unused-collection": ["error"],
+    "sonarjs/no-useless-catch": ["error"],
+    "sonarjs/prefer-object-literal": ["error"],
+    "sonarjs/prefer-single-boolean-return": ["error"],
+    "sonarjs/no-inverted-boolean-check": ["error"]
   }
 }
