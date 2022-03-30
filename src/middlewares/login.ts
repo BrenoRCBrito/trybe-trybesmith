@@ -20,6 +20,6 @@ export default async (req: Request, res: Response, next: NextFunction) => {
     const invalidError = { code: 401, message: 'Username or password invalid' };
     return next(invalidError);
   }
-  const token = createToken({ username, password });
+  const token = createToken({ username, id: (userId as UserId)[0].id });
   return res.status(200).json({ token });
 };
