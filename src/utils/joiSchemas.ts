@@ -35,3 +35,4 @@ export const user = Joi.object({
     'string.min': 'Password must be longer than 7 characters',
   }),
 });
+
