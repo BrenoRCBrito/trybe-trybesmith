@@ -33,8 +33,7 @@ export default class OrderModel {
     const { insertId: orderId } = result;
     console.log(products);
     products.forEach(async (productId) =>
-      this.connection.execute(query2, [orderId, productId])
-    );
+      this.connection.execute(query2, [orderId, productId]),);
     console.log(orderId);
     return orderId;
   }
