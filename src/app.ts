@@ -1,13 +1,16 @@
 import express from 'express';
 import { notFound, globalErr } from './middlewares/error';
-import productsRouter from './routes/products';
+import productRouter from './routes/product';
+import userRouter from './routes/user';
 import 'express-async-errors';
 
 const app = express();
 
 app.use(express.json());
 
-app.use('/products', productsRouter);
+app.use('/products', productRouter);
+
+app.use('/users', userRouter);
 
 app.use('*', notFound);
 

@@ -6,7 +6,7 @@ type CustomError = {
 };
 
 export const notFound = (_req: Request, _res: Response, next: NextFunction) =>
-  next({ code: 404, error: 'Opsss router not found' });
+  next({ code: 404, message: 'Opsss router not found' });
 
 export const globalErr = (
   err: CustomError,

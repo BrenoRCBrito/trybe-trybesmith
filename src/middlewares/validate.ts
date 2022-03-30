@@ -1,6 +1,6 @@
 import { Request, NextFunction, Response } from 'express';
 import { isError } from 'joi';
-import { product } from '../utils/joiSchemas';
+import { product, user } from '../utils/joiSchemas';
 
 const formatError = (error: unknown) => {
   const unknownError = { error: 'Unknown Error' };
@@ -23,4 +23,16 @@ const productCreation = async (req: Request, _res: Response, next: NextFunction)
   return next();
 };
 
-export default { productCreation };
+const userCreation = async (req: Request, _res: Response, next: NextFunction) => {
+  const { username, classe, level, password } = req.body;
+  console.log(level);
+  try {
+    await user.validateAsync({ username, classe, level, password }, { convert: false });
+  } catch (e) {
+    console.log(e);
+    next(formatError(e));
+  }
+  return next();
+};
+
+export default { productCreation, userCreation };
