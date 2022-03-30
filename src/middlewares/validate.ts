@@ -25,11 +25,9 @@ const productCreation = async (req: Request, _res: Response, next: NextFunction)
 
 const userCreation = async (req: Request, _res: Response, next: NextFunction) => {
   const { username, classe, level, password } = req.body;
-  console.log(level);
   try {
     await user.validateAsync({ username, classe, level, password }, { convert: false });
   } catch (e) {
-    console.log(e);
     next(formatError(e));
   }
   return next();
